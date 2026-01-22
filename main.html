@@ -9,12 +9,15 @@
   <h1>Login Form</h1>
 
   <form id="login-form">
+
+    <label for="username">Username:</label><br>
     <input type="text" id="username" placeholder="Username"><br><br>
 
+    <label for="password">Password:</label><br>
     <input type="password" id="password" placeholder="Password"><br><br>
 
     <input type="checkbox" id="checkbox">
-    <label for="checkbox">Remember me.</label><br><br>
+    <label for="checkbox">Remember me:</label><br><br>
 
     <input type="submit" id="submit" value="Submit">
   </form>
@@ -30,13 +33,13 @@
     const checkbox = document.getElementById("checkbox");
     const existingBtn = document.getElementById("existing");
 
-    // Page load aagum bodhu localStorage check pannum
+    // Page load aagum bodhu check pannum
     window.addEventListener("load", () => {
       const savedUser = localStorage.getItem("username");
       const savedPass = localStorage.getItem("password");
 
       if (savedUser && savedPass) {
-        existingBtn.style.display = "inline-block";
+        existingBtn.style.display = "block";
       }
     });
 
@@ -49,7 +52,7 @@
       if (checkbox.checked) {
         localStorage.setItem("username", username.value);
         localStorage.setItem("password", password.value);
-        existingBtn.style.display = "inline-block";
+        existingBtn.style.display = "block";
       } else {
         localStorage.removeItem("username");
         localStorage.removeItem("password");
@@ -57,7 +60,7 @@
       }
     });
 
-    // Existing user button click
+    // Existing user login
     existingBtn.addEventListener("click", () => {
       const savedUser = localStorage.getItem("username");
       alert(`Logged in as ${savedUser}`);
